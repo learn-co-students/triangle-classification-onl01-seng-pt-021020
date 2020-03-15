@@ -6,9 +6,11 @@ class Triangle
     @third_side = third_side
   end 
   
-  
+  def kind 
+  end 
+
   def equilateral
-    first_side == second_side == third_side
+    first_side = second_side && second_side = third_side
   end 
   
   def isosceles
