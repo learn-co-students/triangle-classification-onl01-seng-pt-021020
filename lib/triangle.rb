@@ -4,6 +4,15 @@ class Triangle
     @first_side = first_side
     @second_side = second_side
     @third_side = third_side
+    @all_sides = [first_side, second_side, third_side]
+  end 
+  
+  def triangle_valid?
+    if @first_side > 0 && @second_side > 0 && @third_side > 0 
+      return true 
+    else
+      TriangleError
+    end 
   end 
   
   def kind 
@@ -13,14 +22,11 @@ class Triangle
       :isosceles
     elsif @first_side != @second_side && @second_side != @third_side
       :scalene
-    else @first_side = 0 && @second_side = 0 && @third_side = 0
-        raise TriangleError
+    else @all_sides != triangle_valid?
+      raise TriangleError
     end 
   end 
   
   class TriangleError < StandardError
-    def message
-      puts "This is an illegal triangle."
-    end 
-  end
-end
+  end 
+end 
