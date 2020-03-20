@@ -7,15 +7,14 @@ class Triangle
   end 
   
   def kind 
+    if @first_side == @second_side && @second_side == @third_side
+      :equilateral
+    else 
+      raise TriangleError
+    end 
   end 
 
-  def equilateral
-    first_side = second_side && second_side = third_side
-  end 
-  
-  def isosceles
-  first_side = second_side && second_side != third_side
-end 
+
 
 
 end
