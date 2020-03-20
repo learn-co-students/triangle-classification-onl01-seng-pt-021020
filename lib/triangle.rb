@@ -13,12 +13,14 @@ class Triangle
       :isosceles
     elsif @first_side != @second_side && @second_side != @third_side
       :scalene
-      
+    else @first_side = 0 && @second_side = 0 && @third_side = 0
+        raise TriangleError
     end 
-    
   end 
-
-
-
-
+  
+  class TriangleError < StandardError
+    def message
+      puts "This is an illegal triangle."
+    end 
+  end
 end
